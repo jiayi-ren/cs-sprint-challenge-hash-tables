@@ -3,6 +3,23 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    number_count = {}
+    result = []
+
+    for i in arrays:
+        for j in i:
+            if j not in number_count:
+                number_count[j] = 0
+            number_count[j] += 1
+    
+    sorted_number_count = list(number_count.items())
+    sorted_number_count.sort(key=lambda kv: kv[1], reverse=True)
+
+    for number in sorted_number_count:
+        if number[1] == len(arrays):
+            result.append(number[0])
+        else:
+            break
 
     return result
 
